@@ -1,6 +1,15 @@
-echo "Downloading Prerequisites"
+echo "Downloading Prerequisites................................................................................................................................................."
 snap install helm --classic
-echo "Proceed....Done"
+
+echo "Installing crictl Tools..................................................................................................................................................."
+VERSION="v1.18.0"
+wget https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/crictl-$VERSION-linux-amd64.tar.gz
+sudo tar zxvf crictl-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
+
+echo "Installing critest Tools.................................................................................................................................................."
+VERSION="v1.18.0"
+wget https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/critest-$VERSION-linux-amd64.tar.gz
+sudo tar zxvf critest-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
 
 echo "TASK 1....Deploying WeaveNet CNI"
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
@@ -36,3 +45,13 @@ kubectl apply -f https://raw.githubusercontent.com/cni-genie/CNI-Genie/master/co
 helm repo add linkerd2 https://helm.linkerd.io/stable
 helm install my-linkerd2-cni linkerd2/linkerd2-cni --version 2.9.0
 echo "TASK 5....Installing Multiple CNIs"
+
+echo "TASK 6....Installing NSM Components"
+helm repo add nsm https://helm.nsm.dev/
+helm install netsvcmesh --set insecure=true nsm/nsm
+git clone https://github.com/PANTHEONtech/cnf-examples.git
+echo "TASK 6....Done"
+
+echo "TASK 7....Installing WeaveScope"
+kubectl apply -f "https://cloud.weave.works/k8s/scope.yaml?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+echo "TASK 8....WeaveScope Done"
