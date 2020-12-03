@@ -32,3 +32,7 @@ echo "TASK 5....Done"
 echo "TASK 6....Installing Kubernetes v1.18"
 apt update && apt install -y kubeadm=1.18.5-00 kubelet=1.18.5-00 kubectl=1.18.5-00
 echo "TASK 6....Done"
+
+echo "TASK 7....Installing Rancher"
+sudo docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 -v /opt/rancher:/var/lib/rancher rancher/rancher:latest
+echo "TASK 7....Rancher Installed"
