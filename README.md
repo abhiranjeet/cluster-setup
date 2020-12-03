@@ -14,5 +14,5 @@ $ kubeadm init --apiserver-advertise-address=<master-node-ip-of-your-machine> --
 
 ## Using Weavenet CNI :
 ```
-kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 ```
