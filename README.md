@@ -16,7 +16,6 @@ $ kubeadm init --apiserver-advertise-address=<ip-of-your-master-machine> --pod-n
 
 ## Step 3 : Deploy All Manifests :
 ```
-$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 $ cd cluster-setup
 $ chmod +x deployments.sh
 $ sudo bash deployments.sh
