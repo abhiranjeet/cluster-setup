@@ -14,7 +14,24 @@ $ sudo bash node-up.sh
 $ kubeadm init --apiserver-advertise-address=<ip-of-your-master-machine> --pod-network-cidr=<cni-of-your-choice> --ignore-preflight-errors=all
 ```
 
-## Step 3 : Deploy All Manifests :
+## Step 3 : Choose your CNI :
+### Using Flannel CNI
+```
+$ kubeadm init --apiserver-advertise-address=<ip-of-your-master-machine> --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=all
+```
+
+### Using ContiVPP CNI
+```
+$ kubeadm init --apiserver-advertise-address=<ip-of-your-master-machine> --pod-network-cidr=10.0.0.0/8 --ignore-preflight-errors=all
+```
+
+### On all nodes (for ContiVPP CNI)
+```
+$ sudo sysctl -w vm.nr_hugepages=512
+$ service kubelet restart
+```
+
+## Step 4 : Deploy All Manifests :
 ```
 $ cd cluster-setup
 $ chmod +x deployments.sh
