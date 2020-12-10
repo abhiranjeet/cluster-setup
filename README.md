@@ -23,6 +23,7 @@ $ kubeadm init --apiserver-advertise-address=<ip-of-your-master-machine> --pod-n
 ### Using ContiVPP CNI
 ```
 $ kubeadm init --apiserver-advertise-address=<ip-of-your-master-machine> --pod-network-cidr=10.0.0.0/8 --ignore-preflight-errors=all
+$ kubectl apply -f https://raw.githubusercontent.com/contiv/vpp/master/k8s/contiv-vpp.yaml
 ```
 
 ### On all nodes (for ContiVPP CNI)
