@@ -29,14 +29,12 @@ kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${VERSI
 kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/kubevirt-cr.yaml
 echo "TASK 3....KubeVirt Deployed"
 
-#echo "TASK 4....Deploying Virtctl"
-#VERSION=$(kubectl get kubevirt.kubevirt.io/kubevirt -n kubevirt -o=jsonpath="{.status.observedKubeVirtVersion}")
-#ARCH=$(uname -s | tr A-Z a-z)-$(uname -m | sed 's/x86_64/amd64/') || windows-amd64.exe
-#echo ${ARCH}
-#curl -L -o virtctl https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/virtctl-${VERSION}-${ARCH}
-#chmod +x virtctl
-#install virtctl /usr/local/bin
-#echo "TASK 4....Virtctl Deployed"
+echo "TASK 4....Deploying Virtctl"
+export VERSION=v0.26.1
+curl -L -o virtctl https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/virtctl-${VERSION}-linux-x86_64
+chmod +x virtctl
+sudo install virtctl /usr/local/bin
+echo "TASK 4....Virtctl Deployed"
 
 echo "TASK 5....Its time for CNI-Genie"
 curl https://docs.projectcalico.org/manifests/canal.yaml -O
