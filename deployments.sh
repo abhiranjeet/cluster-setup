@@ -36,21 +36,27 @@ chmod +x virtctl
 sudo install virtctl /usr/local/bin
 echo "TASK 4....Virtctl Deployed"
 
-echo "TASK 5....Its time for CNI-Genie"
+echo "TASK 5....Installing CDI Operator for KubeVirt"
+$ export VERSION=$(curl -s https://github.com/kubevirt/containerized-data-importer/releases/latest | grep -o "v[0-9]\.[0-9]*\.[0-9]*")
+$ kubectl create -f https://github.com/kubevirt/containerized-data-importer/releases/download/$VERSION/cdi-operator.yaml
+$ kubectl create -f https://github.com/kubevirt/containerized-data-importer/releases/download/$VERSION/cdi-cr.yaml
+echo "TASK 5....Done"
+
+echo "TASK 6....Its time for CNI-Genie"
 curl https://docs.projectcalico.org/manifests/canal.yaml -O
 kubectl apply -f canal.yaml
 git clone https://github.com/cni-genie/CNI-Genie.git
 kubectl apply -f https://raw.githubusercontent.com/cni-genie/CNI-Genie/master/conf/1.8/genie-plugin.yaml
 helm repo add linkerd2 https://helm.linkerd.io/stable
 helm install my-linkerd2-cni linkerd2/linkerd2-cni --version 2.9.0
-echo "TASK 5....Installing Multiple CNIs"
+echo "TASK 6....Installing Multiple CNIs"
 
-echo "TASK 6....Installing NSM Components"
+echo "TASK 7....Installing NSM Components"
 helm repo add nsm https://helm.nsm.dev/
 helm install netsvcmesh --set insecure=true nsm/nsm
 git clone https://github.com/PANTHEONtech/cnf-examples.git
-echo "TASK 6....Done"
+echo "TASK 7....Done"
 
-echo "TASK 7....Installing WeaveScope"
+echo "TASK 8....Installing WeaveScope"
 kubectl apply -f "https://cloud.weave.works/k8s/scope.yaml?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 echo "TASK 8....WeaveScope Done"
