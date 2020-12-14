@@ -72,7 +72,7 @@ echo "TASK 6....Installing Multiple CNIs"
 
 echo "TASK 7....Installing NSM Components"
 helm repo add nsm https://helm.nsm.dev/
-helm install netsvcmesh --set insecure=true nsm/nsm
+helm install nsm nsm/nsm
 git clone https://github.com/PANTHEONtech/cnf-examples.git
 echo "TASK 7....Done"
 
