@@ -14,11 +14,23 @@ sudo tar zxvf critest-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
 
 echo "TASK 1....Deploying WeaveNet CNI"
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+echo "TASK 1....In Progress"
+echo "TASK 1....In Progress"
+echo "TASK 1....In Progress"
+echo "TASK 1....In Progress"
+echo "TASK 1....In Progress"
+echo "TASK 1....In Progress"
 echo "TASK 1....CNI Deployed"
 
 echo "TASK 2....Deploying OLM"
 export olm_release=0.15.1
 kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/${olm_release}/crds.yaml
+echo "TASK 2....In Progress"
+echo "TASK 2....In Progress"
+echo "TASK 2....In Progress"
+echo "TASK 2....In Progress"
+echo "TASK 2....In Progress"
+echo "TASK 2....In Progress"
 kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/${olm_release}/olm.yaml
 echo "TASK 2....OLM Deployed"
 
@@ -27,6 +39,13 @@ export VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases
 echo $VERSION
 kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/kubevirt-operator.yaml
 kubectl create -f https://github.com/kubevirt/kubevirt/releases/download/${VERSION}/kubevirt-cr.yaml
+echo "TASK 3....In Progress"
+echo "TASK 3....In Progress"
+echo "TASK 3....In Progress"
+echo "TASK 3....In Progress"
+echo "TASK 3....In Progress"
+echo "TASK 3....In Progress"
+echo "TASK 3....In Progress"
 echo "TASK 3....KubeVirt Deployed"
 
 echo "TASK 4....Deploying Virtctl"
