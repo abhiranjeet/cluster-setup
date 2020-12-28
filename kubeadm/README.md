@@ -8,20 +8,20 @@ $ cd /cluster-setup/kubeadm
 ```
 #### Option 1 : Using Docker as container runtime
 ```
-$ chmod +x node-up.sh
-$ sudo bash node-up.sh
+$ chmod +x node-up-docker.sh
+$ sudo bash node-up-docker.sh
 ```
 
 #### Option 2 : Using container-d as container runtime
 ```
-$ chmod +x node-up.sh
-$ sudo bash node-up.sh
+$ chmod +x node-up-containerd.sh
+$ sudo bash node-up-containerd.sh
 ```
 
 #### Option 3 : Using runc as container runtime
 ```
-$ chmod +x node-up.sh
-$ sudo bash node-up.sh
+$ chmod +x node-up-runc-ubuntu-18.04.sh
+$ sudo bash node-up-runc-ubuntu-18.04.sh
 ```
 
 ## Step 2 : Initialize your cluster on your master node / VM :
