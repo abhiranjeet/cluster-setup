@@ -1,5 +1,9 @@
-apt-get update
+sudo apt-get update
+sudo snap install figlet
 
+figlet "WELCOME"
+figlet "STL - Cloud Native Platform"
+figlet "Setting Kubernetes Cluster"
 echo "TASK 1....Disabling Firewall"
 ufw disable
 echo "TASK 1....Done"
