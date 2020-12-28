@@ -36,3 +36,6 @@ echo "TASK 6....Done"
 echo "TASK 7....Installing Rancher"
 docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 -v /opt/rancher:/var/lib/rancher rancher/rancher:latest
 echo "TASK 7....Rancher Installed"
+
+# kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.5.0.0/16
+# kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
