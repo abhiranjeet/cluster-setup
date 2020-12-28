@@ -2,8 +2,8 @@ sudo apt-get update
 sudo snap install figlet
 
 figlet "WELCOME"
-figlet "STL - Cloud Native Platform"
-figlet "Setting Kubernetes Cluster"
+figlet "STL - CNP"
+figlet "Kubernetes"
 echo "TASK 1....Disabling Firewall"
 ufw disable
 echo "TASK 1....Done"
@@ -40,6 +40,8 @@ echo "TASK 6....Done"
 echo "TASK 7....Installing Rancher"
 docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 -v /opt/rancher:/var/lib/rancher rancher/rancher:latest
 echo "TASK 7....Rancher Installed"
+
+figlet "Your Node is Ready"
 
 # kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.5.0.0/16
 # kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
