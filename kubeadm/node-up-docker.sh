@@ -1,4 +1,5 @@
 sudo apt-get update
+sudo apt install figlet
 sudo snap install figlet
 
 figlet "WELCOME"
@@ -43,5 +44,4 @@ echo "TASK 7....Rancher Installed"
 
 figlet "Your Node is Ready"
 
-# kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.5.0.0/16
-# kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
+kubeadm init --apiserver-advertise-address=$1 --pod-network-cidr=$2 --ignore-preflight-errors=all
