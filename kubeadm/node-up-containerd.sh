@@ -1,4 +1,10 @@
-apt-get update
+sudo apt-get update
+sudo apt install figlet
+sudo snap install figlet
+
+figlet "WELCOME"
+figlet "STL - CNP"
+figlet "Kubernetes"
 
 echo "TASK 1....Disabling Firewall"
 ufw disable
@@ -48,3 +54,6 @@ echo "TASK 5....Done"
 echo "TASK 6....Installing Kubernetes v1.18"
 apt update && apt install -y kubeadm=1.18.5-00 kubelet=1.18.5-00 kubectl=1.18.5-00
 echo "TASK 6....Done
+
+figlet "Your Node is Ready"
+kubeadm init --apiserver-advertise-address=$1 --pod-network-cidr=$2  --ignore-preflight-errors=all
