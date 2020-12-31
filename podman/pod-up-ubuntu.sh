@@ -11,6 +11,10 @@ sudo apt-get -y install podman
 
 echo "Podman has been installed on your Ubuntu Machine"
 
+figlet "runc - OCI Compliant"
+sudo apt update
+sudo apt install runc
+
 figlet "Buildah - The Sidekick"
 echo "Installing Buildah"
 . /etc/os-release
