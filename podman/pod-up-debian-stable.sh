@@ -13,6 +13,11 @@ sudo apt-get -y install podman
 
 echo "Podman has been installed on your Debian 10 Machine"
 
+#figlet "runc - OCI Compliant"
+#git clone https://github.com/opencontainers/runc.git $GOPATH/src/github.com/opencontainers/runc
+#cd $GOPATH/src/github.com/opencontainers/runc
+#make BUILDTAGS="selinux seccomp"
+#sudo cp runc /usr/bin/runc
 
 figlet "Buildah - The Sidekick"
 echo "Installing Buildah"
