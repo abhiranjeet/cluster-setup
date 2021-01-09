@@ -43,5 +43,3 @@ docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 -v /opt/
 echo "TASK 7....Rancher Installed"
 
 figlet "Your Node is Ready"
-
-kubeadm init --apiserver-advertise-address=$1 --pod-network-cidr=$2 --ignore-preflight-errors=all
