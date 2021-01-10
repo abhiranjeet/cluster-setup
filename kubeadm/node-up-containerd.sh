@@ -56,4 +56,3 @@ apt update && apt install -y kubeadm=1.18.5-00 kubelet=1.18.5-00 kubectl=1.18.5-
 echo "TASK 6....Done
 
 figlet "Your Node is Ready"
-kubeadm init --apiserver-advertise-address=$1 --pod-network-cidr=$2  --ignore-preflight-errors=all
