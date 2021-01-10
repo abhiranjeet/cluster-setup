@@ -1,3 +1,10 @@
+sudo apt-get update
+sudo apt install figlet
+sudo snap install figlet
+
+figlet "WELCOME"
+figlet "STL - CNP"
+figlet "Kubernetes"
 # disable swap
 swapoff -a
 sed -i '/swap/d' /etc/fstab
@@ -28,3 +35,4 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 echo 'deb https://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
 apt-get update
 apt-get install -y kubelet=1.18.5-00 kubeadm=1.18.5-00 kubectl=1.18.5-00
+figlet "Your Node is Ready"
