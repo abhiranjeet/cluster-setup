@@ -8,8 +8,13 @@ $ cd /cluster-setup/kubeadm
 ```
 #### Option 1 : Using Docker as container runtime
 ```
-$ chmod +x node-up-docker.sh
-$ sudo bash node-up-docker.sh
+$ chmod +x node-up-docker-ubuntu.sh
+$ sudo bash node-up-docker-ubuntu.sh
+```
+OR
+```
+$ chmod +x node-up-docker-debian-buster.sh
+$ sudo bash node-up-docker-debian-buster.sh
 ```
 
 #### Option 2 : Using container-d as container runtime
