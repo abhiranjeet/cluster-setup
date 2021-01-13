@@ -80,3 +80,7 @@ echo "TASK 7....Done"
 echo "TASK 8....Installing WeaveScope"
 kubectl apply -f "https://cloud.weave.works/k8s/scope.yaml?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 echo "TASK 8....WeaveScope Done"
+
+echo "TASK 9....Installing Skydive Analyzer"
+kubectl apply -f https://raw.githubusercontent.com/skydive-project/skydive/master/contrib/kubernetes/skydive.yaml
+echo "TASK 9....Skydive Done"
