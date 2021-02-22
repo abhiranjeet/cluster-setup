@@ -31,7 +31,7 @@ $ sudo bash node-up-runc-ubuntu-18.04.sh
 
 ## Step 2 : Initialize your cluster on your master node / VM :
 ```
-$ kubeadm init --apiserver-advertise-address=<ip-of-your-master-machine> --pod-network-cidr=<cni-of-your-choice> --ignore-preflight-errors=all
+kubeadm init --apiserver-advertise-address=<ip-of-your-master-machine> --pod-network-cidr=<cni-of-your-choice> --ignore-preflight-errors=all
 ```
 
 ## Step 3 : Deploy CNI :
