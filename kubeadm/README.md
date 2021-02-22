@@ -33,3 +33,8 @@ $ sudo bash node-up-runc-ubuntu-18.04.sh
 ```
 $ kubeadm init --apiserver-advertise-address=<ip-of-your-master-machine> --pod-network-cidr=<cni-of-your-choice> --ignore-preflight-errors=all
 ```
+
+## Step 3 : Deploy CNI :
+```
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+```
