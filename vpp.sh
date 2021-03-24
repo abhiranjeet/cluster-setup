@@ -12,15 +12,16 @@ vppctl set interface state GigabitEthernet0/4/0 up
 vppctl set interface state memif1/0 up
 vppctl set interface state memif1/1 up
 
-figlet "L2 Cross Connects"
+echo "L2 Cross Connects"
 vppctl set interface l2 xconnect GigabitEthernet0/4/0 memif1/0
 vppctl set interface l2 xconnect memif1/0 GigabitEthernet0/4/0
 
 vppctl set interface l2 xconnect memif1/1 GigabitEthernet0/5/0
 vppctl set interface l2 xconnect GigabitEthernet0/5/0 memif1/1
 
-figlet "VPP in container"
+echo "VPP in container"
 docker restart ns-client-2
+ping -c 4 192.168.122.90
 docker exec -it ns-client-2 vppctl delete interface memif memif1/0
 docker exec -it ns-client-2 vppctl delete interface memif memif1/1
 docker exec -it ns-client-2 vppctl create memif socket id 1 filename /tmp/memif1.sock
