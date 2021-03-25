@@ -31,3 +31,12 @@ sudo docker exec -it ns-client-1 vppctl set interface state memif1/1 up
 sudo docker exec -it ns-client-1 vppctl set interface l2 xconnect memif1/0 memif1/1
 sudo docker exec -it ns-client-1 vppctl set interface l2 xconnect memif1/1 memif1/0
 figlet "Done"
+
+set interface rx-placement memif1/0 queue 0 worker 0
+set interface rx-placement GigabitEthernet0/4/0 queue 0 worker 0
+set interface rx-placement memif1/0 queue 1 worker 1
+set interface rx-placement GigabitEthernet0/4/0 queue 1 worker 1
+set interface rx-placement memif1/1 queue 0 worker 2
+set interface rx-placement GigabitEthernet0/5/0 queue 0 worker 2
+set interface rx-placement memif1/1 queue 1 worker 3
+set interface rx-placement GigabitEthernet0/5/0 queue 1 worker 3
