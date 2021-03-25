@@ -1,0 +1,20 @@
+  
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ns-client-2
+spec:
+  containers:
+  - image: networkservicemesh/vppagent-forwarder:master
+    name: ns-client-2
+    volumeMounts:
+    - mountPath: /tmp
+      name: ns-client-2-volume
+  nodeName: <give node name>
+  volumes:
+  - name: ns-client-2-volume
+    hostPath:
+      # directory location on host
+      path: /tmp
+      # this field is optional
+      # type: Directory
