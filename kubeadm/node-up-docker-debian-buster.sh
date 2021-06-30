@@ -10,6 +10,7 @@ swapoff -a
 sed -i '/swap/d' /etc/fstab
 
 # enable bridge netfilter & iptables
+sudo modprobe br_netfilter
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 br_netfilter
 EOF
